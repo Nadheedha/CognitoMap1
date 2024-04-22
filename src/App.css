@@ -1,92 +1,48 @@
-/* App.css */
-
-body {
-  background: linear-gradient(-45deg, #2980b9, #2c3e50, #c0392b, #8e44ad);
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s ease infinite;
+.home-container {
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 100px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
 }
 
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.section {
+  background-color: rgba(240, 240, 240, 0.4); /* Set background color with opacity */
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+  width: 70%; /* Reduce width */
 }
 
-.card {
-  width: 450px;
+.section h1,
+.section h2,
+.section p,
+.section h5 {
+  font-family: 'Times New Roman', sans-serif; /* Set font family to Times New Roman */
+  font-weight: bold; /* Make font bold */
+  font-size: 18px; /* Increase font size */
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.register-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.card-header {
-  background-color: #007bff;
-  color: #ffffff;
-  border-radius: 10px 10px 0 0;
-  font-size: 24px;
-  padding: 20px;
-}
-
-.card-body {
-  padding: 20px;
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-.form-control {
-  width: calc(100% - 24px); /* Decrease width to fit within card */
-  padding: 12px;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary:hover {
+.register-button:hover {
   background-color: #0056b3;
-  border-color: #0056b3;
-}
-
-.btn-link {
-  color: #007bff;
-  font-size: 16px;
-}
-
-.btn-link:hover {
-  color: #0056b3;
-}
-
-.link-text {
-  text-align: center;
-  padding-top: 10px;
-}
-
-.link-text a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.link-text a:hover {
-  text-decoration: underline;
 }

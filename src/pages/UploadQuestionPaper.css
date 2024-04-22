@@ -1,0 +1,47 @@
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input-container {
+    margin-bottom: 20px;
+  }
+  
+  .input-container label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #ede1e1; /* Adjust the label color to be more visible */
+  }
+  
+  .input-container input[type="text"],
+  .input-container input[type="file"],
+  .input-container textarea {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;  /* Increase the font size for input fields and text area */
+  }
+  
+  .textarea-container textarea {
+    font-family: 'Times New Roman', sans-serif; /* Set font family to Times New Roman for text area */
+    font-weight: bold; /* Make the text bold */
+    font-size: 16px !important; 
+  }
+  
+  .upload-button,
+  .save-button {
+    padding: 10px 20px;
+    background-color: #17184d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .upload-button:hover,
+  .save-button:hover {
+    background-color: #0056b3;
+  }
+  

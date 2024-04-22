@@ -1,134 +1,59 @@
-import React, { useState } from 'react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import UploadQuestionPaper from './pages/UploadQuestionPaper';
+import DashboardPage from './pages/Dashboard';
+import './App.css'; // Import CSS file for styling
+
+// Home page component
+function Home() {
+  return (
+    <div className="home-container">
+    <h1 style={{ fontSize: '36px', fontWeight: 'bold', color: '#ffffff', textAlign: 'center' }}>Welcome to COGNITOMAP!</h1>
+
+      <div className="section">
+        <h1>About COGNITOMAP</h1>
+        <hr/>
+        <p>This Application provides an AI-based automatic BT-Level classification of question paper based on blooms Taxonomy thereby elevating the supervised term weighting (STW) schemes for Bloom’s Taxonomy. In addition to this students can analyze their performance in each BT_Level and improvise their learning skills </p>
+      </div>
+      <div className="section">
+        <h1>Blooms Taxonomy</h1>
+        <hr />
+        <h5>Bloom's taxonomy is a set of three hierarchical models used for classification of educational learning objectives into levels of complexity and specificity. The three lists cover the learning objectives in cognitive, affective and psychomotor domains. </h5>
+      </div>
+      <div className="section">
+        <h2>Cognitive domain</h2>
+        <hr />
+        <h5>In the 1956 original version of the taxonomy, the cognitive domain is broken into the six levels of objectives listed below.[10] In the 2001 revised edition of Bloom's taxonomy, the levels have slightly different names and their order is revised: Remember, Understand, Apply, Analyze, Evaluate, and Create (rather than Synthesize).</h5>
+      </div>
+      <div className="button-container">
+        <Link to="/register?type=student">
+          <button className="register-button">Student Registration</button>
+        </Link>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to="/register?type=faculty">
+          <button className="register-button">Faculty Registration</button>
+        </Link><br/><br/>
+      </div>
+    </div>
+  );
+}
 
 function App() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [otp, setOtp] = useState('');
-  const [showOtpForm, setShowOtpForm] = useState(false);
-  const [isRegistered, setIsRegistered] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const backendUrl = ''; // No need to specify the port since it's the same as the frontend
-
-  // Use relative URLs for API endpoints
-  const registerEndpoint = '/register';
-  const verifyOTPEndpoint = '/verify-otp';
-
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      const response = await fetch(registerEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-      });
-      const data = await response.json();
-      if (response.ok) {
-        alert(data.message);
-        setShowOtpForm(true);
-        setIsRegistered(true); // Mark as registered
-      } else {
-        setErrorMessage(data.error);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setErrorMessage('Something went wrong. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleVerifyOTP = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      const response = await fetch(verifyOTPEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, otp })
-      });
-      const data = await response.json();
-      if (response.ok) {
-        setIsRegistered(true); // Mark as verified
-        alert(data.message);
-      } else {
-        setErrorMessage(data.error);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setErrorMessage('Something went wrong. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
-    <div className="container">
-      {!isRegistered ? (
-        <div className="registration-form">
-          <h2>User Registration</h2>
-          <form onSubmit={handleRegister}>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary" disabled={isLoading}>
-              {isLoading ? 'Loading...' : 'Register'}
-            </button>
-            {errorMessage && <p className="text-danger">{errorMessage}</p>}
-          </form>
-        </div>
-      ) : showOtpForm && (
-        <div className="otp-verification-form">
-          <h2>OTP Verification</h2>
-          <form onSubmit={handleVerifyOTP}>
-            <div className="form-group">
-              <label htmlFor="otp">Enter OTP</label>
-              <input
-                type="text"
-                className="form-control"
-                id="otp"
-                placeholder="Enter OTP"
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary" disabled={isLoading}>
-              {isLoading ? 'Loading...' : 'Verify OTP'}
-            </button>
-            {errorMessage && <p className="text-danger">{errorMessage}</p>}
-          </form>
-        </div>
-      )}
-    </div>
+    <Router>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/upload" element={<UploadQuestionPaper />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          {/* Add more routes for other pages */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
