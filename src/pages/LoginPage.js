@@ -10,7 +10,8 @@ function LoginPage() {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const userType = queryParams.get('type');
+  const defaultUserType = queryParams.get('type') || 'faculty';
+  const [userType, setUserType] = useState(defaultUserType);
 
   const loginEndpoint = 'http://localhost:5000/login';
 

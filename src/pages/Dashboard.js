@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
 import UploadQuestionPaper from './UploadQuestionPaper';
 
 const DashboardPage = () => {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const defaultUserType = queryParams.get('type') || 'faculty';
+    const [userType, setUserType] = useState(defaultUserType);
     const [selectedPage, setSelectedPage] = useState('Welcome');
 
-    const pages = [
-        { name: 'Welcome', component: <Dashboard /> },
-        { name: 'Identify Cognitive Level', component: <RegisterPage /> },
-        { name: 'Enter Marks', component: <LoginPage /> },
-        { name: 'Analyze Performance', component: <LoginPage /> },
-        { name: 'Question Paper classification', component: <RegisterPage /> },
-        { name: 'Upload Question Paper', component: <UploadQuestionPaper /> },
-    ];
+    useEffect(() => {
+        // Set user type from URL parameter if available
+        const type = queryParams.get('type');
+        if (type) {
+            setUserType(type);
+        }
+    }, [queryParams]);
 
     const handlePageChange = (pageName) => {
         setSelectedPage(pageName);
@@ -26,19 +30,48 @@ const DashboardPage = () => {
             <div className="navigation-container">
                 <h2 className="navigation-title">Navigation</h2>
                 <ul className="page-list">
-                    {pages.map((page) => (
-                        page.component && (
-                            <li key={page.name} className="page-item">
-                                <button className="page-button" onClick={() => handlePageChange(page.name)}>
-                                    {page.name}
-                                </button>
+                    {userType === 'faculty' && (
+                        <>
+                            <li className="page-item">
+                                <button className="page-button" onClick={() => handlePageChange('Welcome')}>Welcome</button>
                             </li>
-                        )
-                    ))}
+                            <li className="page-item">
+                                <button className="page-button" onClick={() => handlePageChange('Identify Cognitive Level')}>Identify Cognitive Level</button>
+                            </li>
+                            <li className="page-item">
+                                <button className="page-button" onClick={() => handlePageChange('Enter Marks')}>Enter Marks</button>
+                            </li>
+                            <li className="page-item">
+                                <button className="page-button" onClick={() => handlePageChange('Analyze Performance')}>Analyze Performance</button>
+                            </li>
+                            <li className="page-item">
+                                <button className="page-button" onClick={() => handlePageChange('Question Paper classification')}>Question Paper classification</button>
+                            </li>
+                            <li className="page-item">
+                                <button className="page-button" onClick={() => handlePageChange('Upload Question Paper')}>Upload Question Paper</button>
+                            </li>
+                        </>
+                    )}
+                    {userType === 'student' && (
+                        <>
+                            <li className="page-item">
+                                <button className="page-button" onClick={() => handlePageChange('Analyze Performance')}>Analyze Performance</button>
+                            </li>
+                            <li className="page-item">
+                                <button className="page-button" onClick={() => handlePageChange('Question Paper classification')}>Question Paper classification</button>
+                            </li>
+                        </>
+                    )}
                 </ul>
             </div>
             <div className="page-content">
-                {pages.map((page) => page.name === selectedPage && <div key={page.name} className="content">{page.component}</div>)}
+                {/* Render selected page component */}
+                {selectedPage === 'Welcome' && <Dashboard />}
+                {selectedPage === 'Identify Cognitive Level' && <RegisterPage />}
+                {selectedPage === 'Enter Marks' && <LoginPage />}
+                {selectedPage === 'Analyze Performance' && <LoginPage />}
+                {selectedPage === 'Question Paper classification' && <RegisterPage />}
+                {selectedPage === 'Upload Question Paper' && <UploadQuestionPaper />}
             </div>
         </div>
     );

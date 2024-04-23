@@ -4,17 +4,19 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import UploadQuestionPaper from './pages/UploadQuestionPaper';
 import DashboardPage from './pages/Dashboard';
+import HomePage from './pages/homePage'; // Corrected import with uppercase 'H'
 import './App.css'; // Import CSS file for styling
+import QuestionClassification from './pages/question_classification';
 
 // Home page component
 function Home() {
   return (
     <div className="home-container">
-    <h1 style={{ fontSize: '36px', fontWeight: 'bold', color: '#ffffff', textAlign: 'center' }}>Welcome to COGNITOMAP!</h1>
+      <h1 style={{ fontSize: '36px', fontWeight: 'bold', color: '#ffffff', textAlign: 'center' }}>Welcome to COGNITOMAP!</h1>
 
       <div className="section">
         <h1>About COGNITOMAP</h1>
-        <hr/>
+        <hr />
         <p>This Application provides an AI-based automatic BT-Level classification of question paper based on blooms Taxonomy thereby elevating the supervised term weighting (STW) schemes for Bloom’s Taxonomy. In addition to this students can analyze their performance in each BT_Level and improvise their learning skills </p>
       </div>
       <div className="section">
@@ -34,7 +36,7 @@ function Home() {
         &nbsp;&nbsp;&nbsp;&nbsp;
         <Link to="/register?type=faculty">
           <button className="register-button">Faculty Registration</button>
-        </Link><br/><br/>
+        </Link><br /><br />
       </div>
     </div>
   );
@@ -49,7 +51,8 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/upload" element={<UploadQuestionPaper />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/Home" element={<HomePage />} /> 
+          <Route path="/qc" element={<QuestionClassification />} /> {/* Corrected usage of HomePage */}
           {/* Add more routes for other pages */}
         </Routes>
       </div>

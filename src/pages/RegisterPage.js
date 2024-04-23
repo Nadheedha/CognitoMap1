@@ -13,12 +13,12 @@ function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const registerEndpoint = 'http://localhost:5000/register';
-
-
   const verifyOTPEndpoint = 'http://localhost:5000/verify-otp';
 
+  
   const queryParams = new URLSearchParams(window.location.search);
-  const userType = queryParams.get('type');
+  const defaultUserType = queryParams.get('type') || 'faculty';
+  const [userType, setUserType] = useState(defaultUserType);
 
   const handleRegister = async (e) => {
     e.preventDefault();
