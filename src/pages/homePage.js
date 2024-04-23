@@ -46,14 +46,14 @@ const HomePage = () => {
                         <section className="page-section">
                             <h3 className="section-title">Enter Marks</h3>
                             <p className="section-description">Enter marks for students</p>
-                            <button className="page-button" onClick={() => window.location.href='/enter-marks'}>Go</button>
+                            <button className="page-button" onClick={() => window.location.href='/EnterMark'}>Go</button>
                         </section>
                     </div>
                     <div className="card">
                         <section className="page-section">
                             <h3 className="section-title">Analyze Performance</h3>
                             <p className="section-description">Analyze student performance</p>
-                            <button className="page-button" onClick={() => window.location.href='/analyze-performance'}>Go</button>
+                            <button className="page-button" onClick={() => window.location.href='/studentStat'}>Go</button>
                         </section>
                     </div>
                 </div>
@@ -84,7 +84,7 @@ const HomePage = () => {
                                 <section className="page-section">
                                     <h3 className="section-title">Analyze Performance</h3>
                                     <p className="section-description">Analyze your performance</p>
-                                    <button className="page-button" onClick={() => window.location.href='/analyze-performance'}>Go</button>
+                                    <button className="page-button" onClick={() => window.location.href='/studentStat'}>Go</button>
                                 </section>
                             </div>
                             <div className="card">

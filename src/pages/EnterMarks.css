@@ -1,0 +1,125 @@
+/* Global styles */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #3f87a6, #ebf8e1); /* Gradient background */
+    color: #333; /* Default text color */
+  }
+  /* Student info styles */
+  .student-info {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Form container styles */
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .input-wrapper {
+    margin-right: 10px; /* Adjust the gap between inputs */
+  }
+  
+  .input-wrapper:last-child {
+    margin-right: 0; /* Remove margin from the last input */
+  }
+  
+  /* Container styles */
+  .container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+  }
+  
+  /* Form styles */
+  form {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  form input {
+    margin: 5px;
+  }
+  
+  /* Table styles */
+  .questions-table {
+    border-collapse: collapse;
+    width: 80%;
+    background-color: #ffebebb6; 
+    /* Set background color for the entire table */
+  }
+
+  .questions-table-container{
+    margin-bottom: 20px;
+    max-height: 200px; /* Adjust the maximum height as needed */
+    overflow-y: auto;
+  }
+  
+  .questions-table th, .questions-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .questions-table th {
+    background-color: #355b61;
+    color: white;
+  }
+  
+  .questions-table tr:hover {
+    background-color: #f2f2f2; /* Hover color */
+  }
+  
+  /* QnPaperManager styles */
+  .qn-paper-manager {
+    text-align: center;
+  }
+  
+  .qn-paper-manager form {
+    margin-bottom: 20px;
+  }
+  
+  .qn-paper-manager input[type="text"] {
+    margin-right: 10px;
+    padding: 5px;
+  }
+  
+  .qn-paper-manager table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .qn-paper-manager th, .qn-paper-manager td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .qn-paper-manager th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  .qn-paper-manager tr:hover {
+    background-color: #ddd;
+  }
+  
+  /* Button styles */
+  .qn-paper-manager button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px; /* Set border-radius to make the button round */
+  }
+  
+  .qn-paper-manager button:hover {
+    background-color: #0056b3; /* Button hover background color */
+  }
+
+ 

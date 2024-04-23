@@ -15,6 +15,10 @@ function LoginPage() {
 
   const loginEndpoint = 'http://localhost:5000/login';
 
+  const navigateToHomePage = (type) => {
+    window.location.href = `/home?type=${type}`;
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -29,7 +33,7 @@ function LoginPage() {
       const data = await response.json();
       if (response.ok) {
         alert(data.message);
-        // Redirect to dashboard or another page after successful login
+        navigateToHomePage(userType);  
       } else {
         setErrorMessage(data.error);
       }

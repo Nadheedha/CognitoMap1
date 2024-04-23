@@ -7,6 +7,9 @@ import DashboardPage from './pages/Dashboard';
 import HomePage from './pages/homePage'; // Corrected import with uppercase 'H'
 import './App.css'; // Import CSS file for styling
 import QuestionClassification from './pages/question_classification';
+import EnterMarks from './pages/EnterMarks';
+import StudentStat from './pages/StudentStat';
+import IdCogLevel from './pages/IdCogLevel';
 
 // Home page component
 function Home() {
@@ -52,7 +55,11 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/upload" element={<UploadQuestionPaper />} />
           <Route path="/Home" element={<HomePage />} /> 
-          <Route path="/qc" element={<QuestionClassification />} /> {/* Corrected usage of HomePage */}
+          <Route path="/qc" element={<QuestionClassification />} />
+          <Route path="/EnterMark" element ={<EnterMarks/>}/>
+          <Route path="/studentstat" element ={<StudentStat/>}/>
+          <Route path="/icl" element ={<IdCogLevel/>}/>
+          
           {/* Add more routes for other pages */}
         </Routes>
       </div>
