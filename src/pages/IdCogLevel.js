@@ -10,8 +10,10 @@ function IdCogLevel() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/query', { query });
-      const answer = response.data.matches[0].metadata.answer;
+      const response = await axios.post('http://localhost:5000/api/query', { query });
+      console.log(response)
+      const answer = response.data;
+      console.log(response)
       setAnswer(answer);
     } catch (error) {
       console.error('Error:', error);

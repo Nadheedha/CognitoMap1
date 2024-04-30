@@ -36,7 +36,7 @@ const HomePage = () => {
                         <section className="page-section">
                             <h3 className="section-title">Identify Cognitive Level</h3>
                             <p className="section-description">Identify the cognitive levels of questions</p>
-                            <button className="page-button" onClick={() => window.location.href='/identify-cognitive-level'}>Go</button>
+                            <button className="page-button" onClick={() => window.location.href='/icl'}>Go</button>
                         </section>
                     </div>
                 </div>
