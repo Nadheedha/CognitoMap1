@@ -30,10 +30,12 @@ const QuestionClassification = () => {
   }, []);
 
   const destroyChart = () => {
-    if (marksChartRef.current) {
-      marksChartRef.current.destroy();
-    }
-  };
+  if (marksChartRef.current) {
+    marksChartRef.current.destroy(); // Destroy the previous Chart instance
+    marksChartRef.current = null; // Set the ref to null after destruction
+  }
+};
+
 
   const handleQuestionpaperCodeChange = (event) => {
     setSelectedQuestionpaperCode(event.target.value);
@@ -57,7 +59,12 @@ const QuestionClassification = () => {
   const analyzeMarks = () => {
     setIsAnalyzing(true);
     setShowQuestionData(false); // Hide question data section
-    setShowMarksDistribution(true); // Show marks distribution section
+    setShowMarksDistribution(true); 
+    console.log("MarkChart",marksChartRef)
+    if (marksChartRef.current) {
+      
+      marksChartRef.current.destroy();
+    }// Show marks distribution section
     axios.get(`http://localhost:5000/question_data/${selectedQuestionpaperCode}`)
       .then(response => {
         const questionData = response.data[0].questions;
@@ -78,6 +85,8 @@ const QuestionClassification = () => {
           axios.post('http://localhost:5000/analyze_marks', { results: formattedResults })
             .then(response => {
               setMarksDistribution(response.data);
+              
+              console.log("MarkChart after",marksChartRef)
               setIsAnalyzing(false);
             })
             .catch(error => {
@@ -93,6 +102,7 @@ const QuestionClassification = () => {
   };
 
   useEffect(() => {
+    
     if (Object.keys(marksDistribution).length !== 0) {
       const ctx = document.getElementById('marksChart');
       new Chart(ctx, {

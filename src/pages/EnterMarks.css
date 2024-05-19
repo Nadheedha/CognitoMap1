@@ -6,8 +6,10 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(135deg, #3f87a6, #ebf8e1); /* Gradient background */
+    background: linear-gradient(135deg, #3f87a6, #ebf8e1); 
     color: #333; /* Default text color */
+    background-size: cover; /* Ensure background covers the entire viewport */
+    min-height: 100vh; /* Ensure body takes up at least the full height of the viewport */
   }
   /* Student info styles */
   .student-info {
