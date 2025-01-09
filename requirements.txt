@@ -1,0 +1,6 @@
+pymongo
+sentence_transformers
+pinecone
+pdfminer
+generativeai
+flask_cors
