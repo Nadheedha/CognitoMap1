@@ -1,0 +1,48 @@
+.home-container {
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+  background-color: rgba(240, 240, 240, 0.4); /* Set background color with opacity */
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+  width: 70%; /* Reduce width */
+}
+
+.section h1,
+.section h2,
+.section p,
+.section h5 {
+  font-family: 'Times New Roman', sans-serif; /* Set font family to Times New Roman */
+  font-weight: bold; /* Make font bold */
+  font-size: 18px; /* Increase font size */
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.register-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #0056b3;
+}

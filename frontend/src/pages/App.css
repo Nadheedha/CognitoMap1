@@ -1,0 +1,93 @@
+body {
+  background: linear-gradient(-45deg, #3498db, #2c3e50, #e74c3c);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Arial', sans-serif; /* Use a common font family */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(234, 239, 242, 0.888);
+  background-color: #d6ebf744;
+}
+
+.card-header {
+  background-color: #022345;
+  color: #ffffff;
+  border-radius: 10px 10px 0 0;
+  font-size: 24px;
+  padding: 20px;
+}
+
+.card-body {
+  align-items: center;
+  margin: 20px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-control {
+  width: calc(100% - 24px); /* Decrease width to fit within card */
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #8eb7e0;
+  border-color: #74b2f4;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background-color: #215fa0;
+  border-color: #0056b3;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+.card-footer {
+  padding: 10px;
+  color: #fff;
+  border-radius:  0 0 10px 10px;
+  background-color: #022445; /* Light gray background */
+  border-top: 1px solid #dee2e6; /* Gray border on top */
+}
+
+.card-footer p {
+  margin-bottom: 0; /* Remove bottom margin for the paragraph */
+}
+
+.card-footer a {
+  text-decoration: none; /* Remove underline from links */
+  color: #007bff; /* Blue color for links */
+}
+
+.card-footer a:hover {
+  text-decoration: underline; /* Underline links on hover */
+}
+
+/* Add more styles as needed */
